@@ -2,7 +2,6 @@ const cardContainer = document.querySelector(".card-container");
 const logout = document.querySelector(".logout");
 const createNoteButton = document.querySelector(".new-note");
 
-
 const token = localStorage.getItem("jwt");
 
 logout.addEventListener("click", () => {

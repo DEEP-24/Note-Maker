@@ -40,12 +40,22 @@ nav {
 .nav-options {
   background: rgba(255, 255, 255, 0.4);
   padding: 10px;
+  border-radius: 18px;
+  border: 1px solid white;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.card {
+  width: 200px;
+  height: 250px;
+  padding: 10px;
   border-radius: 15px;
+  background: rgba(255, 255, 255, 0.4);
   border: 1px solid white;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  cursor: pointer;
-  margin-left: 15px;
 }
 
 .card-container {
@@ -60,17 +70,6 @@ nav {
   /* background: lightblue; */
 }
 
-.card {
-  width: 200px;
-  height: 250px;
-  padding: 10px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px solid white;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
 .card-header {
   width: 100%;
   display: flex;
@@ -81,6 +80,8 @@ nav {
 .card-heading {
   font-weight: bold;
   font-size: 20px;
+  width: 100%;
+  block-size: fit-content;
 }
 
 .edit-note {
@@ -103,5 +104,6 @@ nav {
   padding: 10px;
   border-radius: 15px;
   word-break: break-word;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
 }

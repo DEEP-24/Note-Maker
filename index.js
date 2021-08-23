@@ -18,7 +18,9 @@ client.connect((err) => {
   }
   console.log("Connected to database!");
 });
+
 app.use(express.static("public"));
+
 app.get("/", (req, res) => {
   res.redirect("/pages");
 });

@@ -1,5 +1,10 @@
-const createNoteButton = document.querySelector(".create-note-button");
+const body = document.querySelector("body");
 
+window.addEventListener("load", () => {
+  body.classList.add("visible");
+});
+
+const createNoteButton = document.querySelector(".create-note-button");
 
 const token = localStorage.getItem("jwt");
 

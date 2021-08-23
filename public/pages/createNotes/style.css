@@ -30,7 +30,6 @@ body {
   background: rgba(255, 255, 255, 0.4);
   border: 1px solid white;
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -73,4 +72,9 @@ body {
   border: 1px solid white;
   cursor: pointer;
   margin-left: 15px;
+}
+
+::placeholder {
+  color: black;
+  opacity: 0.4;
 }

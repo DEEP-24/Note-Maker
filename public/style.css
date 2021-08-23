@@ -109,3 +109,8 @@ main > div {
   filter: blur(5px);
   transform: rotate(18deg);
 }
+
+::placeholder {
+  color: black;
+  opacity: 0.4;
+}
