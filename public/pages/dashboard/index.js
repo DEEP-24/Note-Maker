@@ -15,10 +15,10 @@ createNoteButton.addEventListener("click", () => {
   location.href = "/pages/createNotes/";
 });
 
-const createNotes = (array) => {
+const createNotes = array => {
   cardContainer.innerHTML = "";
 
-  array.forEach((cardObj) => {
+  array.forEach(cardObj => {
     const { heading, content } = cardObj;
     const id = cardObj.noteId;
 
@@ -46,12 +46,12 @@ window.addEventListener("load", () => {
         authorization: token,
       },
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         cardData = data.data;
         createNotes(data.data);
       })
-      .catch((err) => {
+      .catch(err => {
         alert("Error Fetching data");
         console.log(err);
       });
