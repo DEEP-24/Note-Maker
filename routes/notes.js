@@ -4,6 +4,7 @@ const {
   getAllNotes,
   updateNotes,
   deleteNotes,
+  getAllNotesById,
 } = require("../controllers/notes");
 const { verifyToken } = require("../middlewares/authmiddleware");
 const { handleNoteIdparam } = require("../middlewares/notemiddleware");
@@ -24,4 +25,5 @@ router.put("/update/:noteId", verifyToken, updateNotes);
 //localhost: 8000 / auth / note/ delete/:noteId
 router.delete("/delete/:noteId", verifyToken, deleteNotes);
 
+router.get("/getnote/:noteId", verifyToken, getAllNotesById);
 module.exports = router;

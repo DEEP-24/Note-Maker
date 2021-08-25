@@ -8,11 +8,11 @@ exports.addNote = (req, res) => {
     .query(
       `INSERT INTO notes(email, heading, content) VALUES('${req.email}', '${heading}','${content}');`
     )
-    .then((data) => {
+    .then(data => {
       res.status(200).json({ message: "note added successfully" });
     })
 
-    .catch((err) => {
+    .catch(err => {
       res.status(400).json({ message: "Database error occured" });
     });
 };
@@ -21,9 +21,9 @@ exports.addNote = (req, res) => {
 exports.getAllNotes = (req, res) => {
   client
     .query(`SELECT * FROM notes where email='${req.email}'`)
-    .then((data) => {
+    .then(data => {
       const noteData = data.rows;
-      const filteredData = noteData.map((note) => {
+      const filteredData = noteData.map(note => {
         return {
           noteId: note.noteid,
           heading: note.heading,
@@ -36,7 +36,7 @@ exports.getAllNotes = (req, res) => {
         .json({ message: "notes received successfully", data: filteredData });
     })
 
-    .catch((err) => {
+    .catch(err => {
       res.status(400).json({ message: "Database error occured" });
     });
 };
@@ -49,11 +49,11 @@ exports.updateNotes = (req, res) => {
     .query(
       `UPDATE notes SET heading='${heading}' , content='${content}' WHERE noteid='${noteId}'`
     )
-    .then((data) => {
+    .then(data => {
       res.status(200).json({ message: "success" });
     })
 
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       res.status(400).json({ message: "Database error occured" });
     });
@@ -65,11 +65,25 @@ exports.deleteNotes = (req, res) => {
   const { heading, content } = req.body;
   client
     .query(`DELETE FROM notes WHERE noteid='${noteId}'`)
-    .then((data) => {
+    .then(data => {
       res.status(200).json({ message: "Note deleted successfully" });
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       res.status(400).json({ message: "Database error occurred" });
+    });
+};
+
+exports.getAllNotesById = (req, res) => {
+  const noteId = req.params.noteId;
+  client
+    .query(`SELECT * FROM notes WHERE noteid='${noteId}'`)
+    .then(data => {
+      data = data.rows[0];
+      console.log(data);
+      res.status(200).json({ data });
+    })
+    .catch(err => {
+      res.status(500).json({ message: "database error occured" });
     });
 };
