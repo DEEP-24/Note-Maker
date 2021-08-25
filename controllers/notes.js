@@ -73,3 +73,18 @@ exports.deleteNotes = (req, res) => {
       res.status(400).json({ message: "Database error occurred" });
     });
 };
+
+//route to get note by id
+exports.getAllNotesById = (req, res) => {
+  const noteId = req.params.noteId;
+  client
+    .query(`SELECT * FROM notes WHERE noteid='${noteId}'`)
+    .then((data) => {
+      data = data.rows[0];
+      console.log(data);
+      res.status(200).json({ data });
+    })
+    .catch((err) => {
+      res.status(500).json({ message: "database error occured" });
+    });
+};
