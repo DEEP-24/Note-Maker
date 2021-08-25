@@ -3,8 +3,7 @@ const noteId = urlParams.get("noteId");
 
 console.log(noteId);
 
-const updateNoteButton = document.querySelector(".create-note-button");
-
+const updateNoteButton = document.querySelector(".update-note-button");
 
 const token = localStorage.getItem("jwt");
 
@@ -28,7 +27,7 @@ updateNoteButton.addEventListener("click", () => {
         }
       })
       .catch((err) => {
-        alert("Error Creating Note!! Re-try....");
+        alert("Error Updating Note!! Re-try....");
         console.log(err);
       });
   }
