@@ -22,7 +22,7 @@ body {
   opacity: 1;
 }
 
-.create-notes-container {
+.update-notes-container {
   width: 300px;
   height: 350px;
   padding: 20px;
@@ -42,7 +42,7 @@ body {
   font-size: 30px;
 }
 
-.create-note-input {
+.update-note-input {
   border: none;
   height: 50%;
   width: 90%;
@@ -52,7 +52,7 @@ body {
   text-align: center;
 }
 
-.create-note-heading {
+.update-note-heading {
   border: none;
   height: 10%;
   width: 90%;
@@ -62,12 +62,12 @@ body {
   text-align: center;
 }
 
-.create-note-input:focus,
-.create-note-heading:focus {
+.update-note-input:focus,
+.update-note-heading:focus {
   outline: none;
 }
 
-.create-note-button {
+.update-note-button {
   background: transparent;
   padding: 10px;
   border-radius: 15px;

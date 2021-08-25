@@ -1,19 +1,15 @@
 const urlParams = new URLSearchParams(window.location.search);
 const noteId = urlParams.get("noteId");
-const updatenotecontainer = document.querySelector(".create-notes-container");
+const updatenotecontainer = document.querySelector(".update-notes-container");
 console.log(noteId);
 
-<<<<<<< HEAD
 const updateNoteButton = document.querySelector(".update-note-button");
-=======
-const updateNoteButton = document.querySelector(".create-note-button");
->>>>>>> 8de787f3532ba9d3398a366fdedac34984fe8e2e
 
 const token = localStorage.getItem("jwt");
 
 updateNoteButton.addEventListener("click", () => {
-  const content = document.querySelector(".create-note-input").value;
-  const heading = document.querySelector(".create-note-heading").value;
+  const content = document.querySelector(".update-note-input").value;
+  const heading = document.querySelector(".update-note-heading").value;
 
   if (token) {
     fetch(`/note/update/${noteId}`, {
@@ -24,19 +20,14 @@ updateNoteButton.addEventListener("click", () => {
       },
       body: JSON.stringify({ content, heading }),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data.message) {
           location.href = "/pages/dashboard/dashboard.html";
         }
       })
-<<<<<<< HEAD
       .catch((err) => {
-        alert("Error Updating Note!! Re-try....");
-=======
-      .catch(err => {
         alert("Error Creating Note!! Re-try....");
->>>>>>> 8de787f3532ba9d3398a366fdedac34984fe8e2e
         console.log(err);
       });
   }
@@ -50,11 +41,11 @@ window.addEventListener("load", () => {
         authorization: token,
       },
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         data = data.data;
-        document.querySelector(".create-note-heading").value = data.heading;
-        document.querySelector(".create-note-input").value = data.content;
+        document.querySelector(".update-note-heading").value = data.heading;
+        document.querySelector(".update-note-input").value = data.content;
       });
   }
 });
