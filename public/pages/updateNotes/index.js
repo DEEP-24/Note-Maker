@@ -23,7 +23,7 @@ updateNoteButton.addEventListener("click", () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.message) {
-          location.href = "/pages/dashboard/dashboard.html";
+          location.href = "/pages/dashboard/";
         }
       })
       .catch((err) => {

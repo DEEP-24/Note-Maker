@@ -50,6 +50,10 @@ body {
   color: black;
   padding: 10px;
   text-align: center;
+  /* overflow-wrap: break-word;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  word-break: break-all; */
 }
 
 .update-note-heading {
@@ -74,4 +78,8 @@ body {
   border: 1px solid white;
   cursor: pointer;
   margin-left: 15px;
+}
+
+.update-note-input.text {
+  overflow-wrap: break-word;
 }

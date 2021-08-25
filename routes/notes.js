@@ -25,5 +25,7 @@ router.put("/update/:noteId", verifyToken, updateNotes);
 //localhost: 8000 / auth / note/ delete/:noteId
 router.delete("/delete/:noteId", verifyToken, deleteNotes);
 
+//localhost: 8000 / auth / note/getnote/:noteId
 router.get("/getnote/:noteId", verifyToken, getAllNotesById);
+
 module.exports = router;
